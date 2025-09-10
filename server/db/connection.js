@@ -1,0 +1,108 @@
+const mongoose = require('mongoose');
+const Usertable = require('../Models/usertable');
+const users = [
+    {
+      first_name: "Ali",
+      last_name: "Rezaei",
+      email: "ali.rezaei@example.com",
+      mobile: "09120000001",
+      dob: new Date("1995-01-01"),
+      password: "password123",
+    },
+    {
+      first_name: "Sara",
+      last_name: "Mohammadi",
+      email: "sara.mohammadi@example.com",
+      mobile: "09120000002",
+      dob: new Date("1996-02-15"),
+      password: "password123",
+    },
+    {
+      first_name: "Reza",
+      last_name: "Ahmadi",
+      email: "reza.ahmadi@example.com",
+      mobile: "09120000003",
+      dob: new Date("1990-03-20"),
+      password: "password123",
+    },
+    {
+      first_name: "Neda",
+      last_name: "Karimi",
+      email: "neda.karimi@example.com",
+      mobile: "09120000004",
+      dob: new Date("1992-04-10"),
+      password: "password123",
+    },
+    {
+      first_name: "Hossein",
+      last_name: "Azizi",
+      email: "hossein.azizi@example.com",
+      mobile: "09120000005",
+      dob: new Date("1989-05-05"),
+      password: "password123",
+    },
+    {
+      first_name: "Fatemeh",
+      last_name: "Rahimi",
+      email: "fatemeh.rahimi@example.com",
+      mobile: "09120000006",
+      dob: new Date("1997-06-18"),
+      password: "password123",
+    },
+    {
+      first_name: "Mohammad",
+      last_name: "Ebrahimi",
+      email: "mohammad.ebrahimi@example.com",
+      mobile: "09120000007",
+      dob: new Date("1991-07-22"),
+      password: "password123",
+    },
+    {
+      first_name: "Zahra",
+      last_name: "Hashemi",
+      email: "zahra.hashemi@example.com",
+      mobile: "09120000008",
+      dob: new Date("1993-08-30"),
+      password: "password123",
+    },
+    {
+      first_name: "Mehdi",
+      last_name: "Kazemi",
+      email: "mehdi.kazemi@example.com",
+      mobile: "09120000009",
+      dob: new Date("1994-09-12"),
+      password: "password123",
+    },
+    {
+      first_name: "Elham",
+      last_name: "Najafi",
+      email: "elham.najafi@example.com",
+      mobile: "09120000010",
+      dob: new Date("1998-10-25"),
+      password: "password123",
+    },
+  ];
+
+//   const seedUsers = async () => {
+//     try {
+//       await connectdb("mongodb://127.0.0.1:27017/MernStackProject"); // آدرس دیتابیس
+  
+//       await Usertable.insertMany(users);
+//       console.log("✅ 10 users inserted ");
+  
+//       mongoose.connection.close();
+//     } catch (error) {
+//       console.log("❌ خطا در وارد کردن دیتا:", error);
+//     }
+//   }; 
+const connectdb = (con) =>{
+    return mongoose.connect(con).then(()=>{
+        
+        console.log('connection successfull')
+    }).catch((err)=>{
+        console.log('database error :', err)
+    })
+}
+
+// seedUsers();
+module.exports = connectdb
