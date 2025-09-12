@@ -1,10 +1,8 @@
 const Usertable = require("../../Models/usertable");
 
-
 const jwt = require("jsonwebtoken");
 bcrypt = require("bcrypt");
 const secretKey = "12345678910";
-
 
 const register = async (req, res) => {
   try {
@@ -22,13 +20,12 @@ const register = async (req, res) => {
     });
 
     const response = await createuser.save();
+    const token = jwt.sign({ id: response.id }, secretKey, { expiresIn: "1h" });
+    console.log("this is token", token);
 
-    console.log(req.body);
-
-    res.send({ status: "Successfully", data: response });
+    res.send({ status: "Successfully", data: response ,token:token});
   } catch (errors) {
     res.send({ status: "fail", errors });
-
     console.log("user register error is here", errors);
   }
 };
