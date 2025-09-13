@@ -1,7 +1,7 @@
 const Usertable = require("../../Models/usertable");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const secretKey = "12345678910";
+const secretKey = "123456789101";
 
 const login = async (req, res) => {
   try {
